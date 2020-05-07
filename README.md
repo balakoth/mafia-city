@@ -23,3 +23,8 @@ PLease disgegard any stray console.log, as I have an odd way of debugging when n
 Best regards,
 Joseph Crenshaw
 
+
+TODO:
+ - Fade stereo distance volume?  (if possible) by distance from colshape center
+ - restyle default audio tag.  Disable controls, add mafia city stylized buttons
+ - create check distance function from center to center of new creation (for future buy points) making sure distance is +10 apart while respecting dimension  (for possible festivals?    Buildings next to each other with stereoes etc
