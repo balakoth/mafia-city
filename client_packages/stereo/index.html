@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>&#65279;</title>
+    <script src="../sStream.js"></script>
+
+    <style>
+        audio {
+            filter: invert(100%);
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+    function setStation(url, name) {
+        var audio = document.createElement('AUDIO');
+        audio.id = 'station';
+        audio.src = url;
+        audio.volume = 0.5;
+        audio.controls = true;
+        audio.autoplay = true;
+        audio.onended = function() {
+            audio.remove();
+        };
+
+        document.body.appendChild(audio);
+        audio.play();
+    }
+
+    function changeStation(url, name) {
+        var audio = document.getElementsByTagName('AUDIO')[0];
+        //var audio = document.getElementById('station');
+
+        audio.pause();
+        audio.currentTime = 0;
+        audio.src = url;
+        audio.load();
+        audio.play();
+    }
+
+    function stereoPowerPersonal(power) {
+        var audio = document.getElementsByTagName('AUDIO');
+        if (power == true)
+            audio.start();
+        else
+            audio.stop()
+    }
+</script>
+
+</html>
