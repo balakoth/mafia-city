@@ -7,19 +7,6 @@ const RENAME_ALL_LISTENERS = 4;
 
 global.Stereos = [];
 
-// Find the stereo based on colshape object passed
-//    null = not found;
-//    returns:  stereo object
-function findStereoByCol(currCol) {
-    Stereos.forEach((stereoList) => {
-        if (stereoList.stereoLoc == currCol) {
-            return stereoList;
-        }
-    });
-    return null;
-}
-
-
 // See if player is in stereo collision (audio colshape) with ownership
 //    Player object taken
 //    returns: stereo object
