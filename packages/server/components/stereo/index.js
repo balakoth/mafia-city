@@ -173,6 +173,6 @@ mp.events.addCommand('stereo', (player, fullText, param1, param2) => {
             player.notify('~y~ You cannot control a stereo from here.');
         }
     } else {
-        console.log('You might be dumb');
+        console.log('No Stereo');
     }
 });
