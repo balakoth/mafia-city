@@ -1,4 +1,4 @@
-// Listender controller constants
+// Listener controller constants
 const STOP_ALL_LISTENERS = 0;
 const START_ALL_LISTENERS = 1;
 const RESTART_ALL_LISTENERS = 3;
@@ -103,9 +103,6 @@ server.db.Handle.query('SELECT * FROM stereos', function(err, result) {
     }
 });
 
-
-
-//fix by Loxitation, thanks to him
 
 function playerEnterColshapeHandler(player, shape) {
     Stereos.forEach((stereoList) => {
