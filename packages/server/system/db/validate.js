@@ -20,7 +20,6 @@ module.exports = {
                 player.loggedInAs = result[0]['username'];
                 player.stereoVolume = result[0]['stereoVolume'];
                 player.setVariable('stationName', null);
-                player.useCol = null;
                 // player.setVariable(stereoVolume, result[0]["stereoVolume"]);
                 console.log(`${player.name} ${player.uid} has logged in`);
             }
