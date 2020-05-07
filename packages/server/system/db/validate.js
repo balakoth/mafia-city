@@ -1,7 +1,7 @@
 module.exports = {
     register: function(player) {
         player.data.money = 1;
-        player.position = new mp.Vector3(15, 15, 71); //  Use the same values that are default inside your DB
+        player.position = new mp.Vector3(15, 15, 71); // defaults found some a tut
         player.health = 100;
         player.loggedInAs = player.name;
     },
