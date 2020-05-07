@@ -136,7 +136,7 @@ function playerExitColshapeHandler(player, shape) {
 mp.events.add('playerExitColshape', playerExitColshapeHandler);
 
 
-
+// Stereo Ownership handling // Djs??
 mp.events.addCommand('stereo', (player, fullText, param1, param2) => {
     let control = canControl(player);
     if (control != null) {
