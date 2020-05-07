@@ -15,7 +15,7 @@ function canControl(player) {
         return uid.uid == player.uid;
     });
 
-    if (found.stereoLoc.isPointWithin(player.position))
+    if (found.stereoControl.isPointWithin(player.position))
         return found;
 
     return null;
