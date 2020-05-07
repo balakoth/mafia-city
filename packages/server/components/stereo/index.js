@@ -104,6 +104,7 @@ server.db.Handle.query('SELECT * FROM stereos', function(err, result) {
 });
 
 
+// Enter and check colshape for stereo and turn on the radio if possible with station name for render
 function playerEnterColshapeHandler(player, shape) {
     Stereos.forEach((stereoList) => {
         if (stereoList.stereoLoc == shape) {
@@ -119,6 +120,8 @@ function playerEnterColshapeHandler(player, shape) {
 }
 mp.events.add('playerEnterColshape', playerEnterColshapeHandler);
 
+
+// Exit and check colshape for stereo and turn off radio - Clear station name for render
 function playerExitColshapeHandler(player, shape) {
     Stereos.forEach((stereoList) => {
         if (stereoList.stereoLoc == shape) {
@@ -152,34 +155,29 @@ mp.events.addCommand('stereo', (player, fullText, param1, param2) => {
             player.setVariable('stationName', '');
             controlAllListeners(control, STOP_ALL_LISTENERS);
             control.power = false;
-        } else if (param1 == 'on') { // Turn on stream 
+        } else if (param1 == 'on') { // Turn on radip -- activates if on during colshape enter
             if (control.power == true) {
                 player.notify('~b~ Stereo is already on!');
                 return;
             }
-            // player.call('sStreamOn', []);
             player.notify('~b~ Stereo is now on!');
             controlAllListeners(control, START_ALL_LISTENERS);
             control.power = true;
-        } else if (param1 == 'station') {
+        } else if (param1 == 'station') { // Set Station HTTP /  OGG address
             if (param2 != null || param2 != "") {
                 control.station = param2;
-                //var array = arguments;
-                //array.shift();
-                // control.stationName = 
                 if (control.power == true) {
-                    controlAllListeners(control, RESTART_ALL_LISTENERS);
+                    controlAllListeners(control, RESTART_ALL_LISTENERS); // Restart all found players.   Using pause() / play() timeline = 0 javascript call
                 }
             } else {
                 player.notify('~y~ You need a station address! (HTTP://)');
             }
-        } else if (param1 == 'stationname') {
+        } else if (param1 == 'stationname') { // Rendered GUI display name setting
             if (param1 != null || param1 != "") {
                 var stationName = fullText.substring(param1.length + 1);
                 control.stationName = stationName;
-
                 if (control.power == true) {
-                    controlAllListeners(control, RENAME_ALL_LISTENERS);
+                    controlAllListeners(control, RENAME_ALL_LISTENERS); // Rename everyone ones setVar
                 }
             } else {
                 player.notify('~y~ You need to supply a name for the station!');
